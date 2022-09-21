@@ -11,9 +11,11 @@
 
 
 /* Defines -----------------------------------------------------------*/
-#define LED_GREEN PB5   // PB5 is AVR pin where green on-board LED 
+#define LED_GREEN PB0   // PB5 is AVR pin where green on-board LED 
                         // is connected
 #define SHORT_DELAY 250 // Delay in milliseconds
+#define LONG_DELAY 750 // Delay in milliseconds EDITED 
+#define END_DELAY 2000 // Delay in milliseconds EDITED 
 #ifndef F_CPU
 # define F_CPU 16000000 // CPU frequency in Hz required for delay funcs
 #endif
@@ -28,6 +30,7 @@
 // names. We are using Arduino-style just to simplify the first lab.
 #include "Arduino.h"
 #define PB5 13          // In Arduino world, PB5 is called "13"
+#define PB0 8          // In Arduino world, PB0 is called "8"
 // -----
 
 
@@ -47,16 +50,14 @@ int main(void)
     // Infinite loop
     while (1)
     {
-        // Change LED value
-        if (led_value == LOW)
-            led_value = HIGH;
-        else
-            led_value = LOW;
-
-        // Pause several milliseconds
+         digitalWrite(LED_GREEN, HIGH);
         _delay_ms(SHORT_DELAY);
-        // Turn ON/OFF on-board LED
-        digitalWrite(LED_GREEN, led_value);
+        digitalWrite(LED_GREEN, LOW);
+        _delay_ms(LONG_DELAY);
+        digitalWrite(LED_GREEN, HIGH);
+        _delay_ms(LONG_DELAY);
+        digitalWrite(LED_GREEN, LOW);
+        _delay_ms(END_DELAY);
     }
 
     // Will never reach this
