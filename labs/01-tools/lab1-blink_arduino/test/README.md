@@ -6,7 +6,7 @@
 
 ```c
 /* Defines -----------------------------------------------------------*/
-#define LED_GREEN PB0   // PB5 is AVR pin where green on-board LED
+#define LED_GREEN PB0   // PB0 is AVR pin where green on-board LED
                         // is connected
 #define SHORT_DELAY 250 // Delay in milliseconds
 #define LONG_DELAY 750  // Delay in milliseconds EDITED
