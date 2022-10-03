@@ -35,11 +35,11 @@ The purpose of this laboratory exercise is to learn how to create your own libra
    | **Data type** | **Number of bits** | **Range** | **Description** |
    | :-: | :-: | :-: | :-- |
    | `uint8_t`  | 8 | 0, 1, ..., 255 | Unsigned 8-bit integer |
-   | `int8_t`   | 8 | -128 to 127 | Signet 8-bit integer |
+   | `int8_t`   | 8 | -128 to 127 | Signed 8-bit integer |
    | `uint16_t` | 16 | 	0 to 65535 | Unsigned 16-bit integer  |
    | `int16_t`  | 16 | 	-32768 to 32767 | Signed 16-bit integer  |
    | `float`    | 32 | -3.4e+38, ..., 3.4e+38 | Single-precision floating-point |
-   | `void`     | 0 | Na | "Void is not a type qualifier on any value" |
+   | `void`     | 0 | N/A | "Void is not a type qualifier on any value" |
 
 <a name="part1"></a>
 
@@ -72,10 +72,10 @@ A detailed description of working with input/output ports can be found in [ATmeg
 
    | **DDRB** | **PORTB** | **Direction** | **Internal pull-up resistor** | **Description** |
    | :-: | :-: | :-: | :-: | :-- |
-   | 0 | 0 | input | no | Tri-state, high-impedance |
-   | 0 | 1 | | | |
-   | 1 | 0 | | | |
-   | 1 | 1 | | | |
+   | 0 | 0 | input | No | Tri-state, high-impedance |
+   | 0 | 1 | input | Yes | Pxn will source current if ext. pulled low. |
+   | 1 | 0 | output | No | Output low (sink)|
+   | 1 | 1 | output | No | Output high (source)|
 
 2. To control individual bits, the following binary and logic operations are used.
 
