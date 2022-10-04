@@ -30,7 +30,7 @@ The purpose of this laboratory exercise is to learn how to use basic input/outpu
 
 1. Draw two basic ways to connect a LED to the output pin of the microcontroller: LED active-low, LED active-high.
 
-![sch_leds](images/sch_leds.jpg)
+![sch_leds](images/sch_leds.JPG)
 
 
 &nbsp;
@@ -56,7 +56,7 @@ R = \frac{V_{SUPPLY}-V_{LED}}{I} =
 
 3. Draw the basic ways to connect a push button to the microcontroller input pin: button active-low, button active-high.
 
-![sch_sw](images/sch_sw.jpg)
+![sch_sw](images/sch_sw.JPG)
 
 &nbsp;
 
