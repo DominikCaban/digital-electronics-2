@@ -19,7 +19,6 @@
 #endif
 
 /* Includes ----------------------------------------------------------*/
-#include <gpio.h>       // GPIO library
 #include <avr/io.h>     // AVR device-specific IO definitions
 #include <util/delay.h> // Functions for busy-wait delay loops
 
@@ -40,22 +39,18 @@
 int main(void)
 {
   // Set pin where on-board LED is connected as output
-  // DDRB |= (1 << (LED_GREEN));
-  GPIO_mode_output(&DDRB, LED_GREEN);
+  DDRB |= (1 << (LED_GREEN));
+
   // Set pin where on-board LED is connected as output
-  // DDRB |= (1 << (LED_RED));
-  GPIO_mode_output(&DDRB, LED_RED);
+  DDRB |= (1 << (LED_RED));
 
   // Infinite loop
   while (1)
   {
-    GPIO_write_low(&PORTB, LED_GREEN);
-    GPIO_write_low(&PORTB, LED_RED);
-    // PORTB ^= (1 << (LED_RED));
+    PORTB ^= (1 << (LED_GREEN));
+    PORTB ^= (1 << (LED_RED));
     _delay_ms(SHORT_DELAY);
-    GPIO_write_high(&PORTB, LED_GREEN);
-      GPIO_write_high(&PORTB, LED_RED);
-    _delay_ms(SHORT_DELAY);
+
     //     _delay_ms(SHORT_DELAY);
   }
   // Will never reach this
