@@ -99,9 +99,9 @@ A detailed description of working with input/output ports can be found in [ATmeg
 
    | **Version** | **Size [B]** |
    | :-- | :-: |
-   | Arduino-style |  |
-   | Registers |  |
-   | Library functions |  |
+   | Arduino-style     | 480 |
+   | Registers         | 172 |
+   | Library functions | 182 |
 
    Comment Arduino-style defines and functions, use binary operations with control registers DDRB, PORTB and rewrite the application. Note its size after the compilation. Use breadborad, LED, resistor, and wires and connect second LED in actve-low way. Upload the code into the ATmega328P and verify its functionality.
 
