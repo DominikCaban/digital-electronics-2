@@ -36,25 +36,78 @@ The purpose of the laboratory exercise is to understand the serial control of Hi
    | **LCD signal(s)** | **AVR pin(s)** | **Description** |
    | :-: | :-: | :-- |
    | RS | PB0 | Register selection signal. Selection between Instruction register (RS=0) and Data register (RS=1) |
-   | R/W |  |  |
-   | E |  |  |
-   | D[3:0] |  |  |
-   | D[7:4] |  |  |
-   | K |  |  |
+   | R/W | GND | Constant Write Mode |
+   | E | PB1 | Write Enable (Chip Select) |
+   | D[3:0] | NC | LOW Data bus used in 8 bit transfer |
+   | D[7:4] | PORTD[7:4]| HIGH Data bus for both 4 and 8 bit transfer |
+   | K | PB2 | Backlight - connected to Q1 trans. collector HIGH - ON, LOW - OFF |
 
 2. What is the ASCII table? What are the codes/values for uppercase letters `A` to `Z`, lowercase letters `a` to `z`, and numbers `0` to `9` in this table?
 
    | **Char** | **Decimal** | **Hexadecimal** |
    | :-: | :-: | :-: |
-   | `A` | 65 | 0x41 |
-   | `B` |  |  |
-   | ... |  |  |
-   | `a` | 97 | 0x61 |
-   | `b` |  |  |
-   | ... |  |  |
-   | `0` | 48 | 0x30 |
-   | `1` |  |  |
-   | ... |  |  |
+   | 0 | 48  | 30 |
+   | 1 | 49  | 31 |
+   | 2 | 50  | 32 |
+   | 3 | 51  | 33 |
+   | 4 | 52  | 34 |
+   | 5 | 53  | 35 |
+   | 6 | 54  | 36 |
+   | 7 | 55  | 37 |
+   | 8 | 56  | 38 |
+   | 9 | 57  | 39 |
+   | A | 65  | 41 |
+   | B | 66  | 42 |
+   | C | 67  | 43 |
+   | D | 68  | 44 |
+   | E | 69  | 45 |
+   | F | 70  | 46 |
+   | G | 71  | 47 |
+   | H | 72  | 48 |
+   | I | 73  | 49 |
+   | J | 74  | 4A |
+   | K | 75  | 4B |
+   | L | 76  | 4C |
+   | M | 77  | 4D |
+   | N | 78  | 4E |
+   | O | 79  | 4F |
+   | P | 80  | 50 |
+   | Q | 81  | 51 |
+   | R | 82  | 52 |
+   | S | 83  | 53 |
+   | T | 84  | 54 |
+   | U | 85  | 55 |
+   | V | 86  | 56 |
+   | W | 87  | 57 |
+   | X | 88  | 58 |
+   | Y | 89  | 59 |
+   | Z | 90  | 5A |
+   | a | 97  | 61 |
+   | b | 98  | 62 |
+   | c | 99  | 63 |
+   | d | 100 | 64 |
+   | e | 101 | 65 |
+   | f | 102 | 66 |
+   | g | 103 | 67 |
+   | h | 104 | 68 |
+   | i | 105 | 69 |
+   | j | 106 | 6A |
+   | k | 107 | 6B |
+   | l | 108 | 6C |
+   | m | 109 | 6D |
+   | n | 110 | 6E |
+   | o | 111 | 6F |
+   | p | 112 | 70 |
+   | q | 113 | 71 |
+   | r | 114 | 72 |
+   | s | 115 | 73 |
+   | t | 116 | 74 |
+   | u | 117 | 75 |
+   | v | 118 | 76 |
+   | w | 119 | 77 |
+   | x | 120 | 78 |
+   | y | 121 | 79 |
+   | z | 122 | 7A |
 
 <a name="part1"></a>
 
