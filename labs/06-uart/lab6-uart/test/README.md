@@ -23,23 +23,23 @@
 
 2. Draw timing diagram of the output from UART/USART when transmitting three character data `De2` in 4800 7O2 mode (7 data bits, odd parity, 2 stop bits, 4800&nbsp;Bd). The image can be drawn on a computer or by hand. Name all parts timing diagram.
 
-   ![wavedorm](images/wavedrom.png)
+   ![wavedorm](images/wavedrom2.svg)
 
      > The figure above was created in [WaveDrom](https://wavedrom.com/) digital timing diagram online tool. The figure source code is as follows (ticks -1, 10, 11 and 12 were manually adjusted afterwards):
   >
   ```javascript
-  {
+ {
   signal:
   [
+    {node: '.AB' },
  	{name: 'ASCII', wave: 'z4..........z4..........z4..........z', "data": "D e 2" },
     {name: 'Template', wave: 'z23333333355z23333333355z23333333355z', "data":"start D0 D1 D2 D3 D4 D5 D6 parity stop stop start D0 D1 D2 D3 D4 D5 D6 parity stop stop start D0 D1 D2 D3 D4 D5 D6 parity stop stop" },
     {name: 'UART 7o2', wave: 'x00010001111x01010011111x00100110011x', data: ["start", "body", "tail", "data"] },
-
+    
   ],
-  head:
-  {
-
-  },
+      edge: [
+ 'A+B 0,2 ms'
+  ]
 }
   ```
 
