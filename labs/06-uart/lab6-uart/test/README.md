@@ -16,8 +16,9 @@
    | `Space` | 32 | 0x20 | `0b0100_0000` |
    | `Tab` | 9 | 0x9 | `0b0000_1001` |
    | `Backspace` | 127 | 0x7f | `0b0111_1111` |
-   | `Enter` | 13 | 0xd | `0b0000_1101` |
+   | `Enter` | 10 | 0x0a | `0b0000_1010` |
 
+*Notes: 13 (DEC) is for Carriage return not for Enter.*
 ### UART communication
 
 2. Draw timing diagram of the output from UART/USART when transmitting three character data `De2` in 4800 7O2 mode (7 data bits, odd parity, 2 stop bits, 4800&nbsp;Bd). The image can be drawn on a computer or by hand. Name all parts timing diagram.
