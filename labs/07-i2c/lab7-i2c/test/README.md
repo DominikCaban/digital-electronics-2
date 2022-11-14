@@ -1,4 +1,4 @@
-# Lab 7: INSERT_YOUR_FIRSTNAME INSERT_YOUR_LASTNAME
+# Lab 7: Dominik Caban
 
 ### Arduino Uno pinout
 
@@ -10,7 +10,7 @@
    * SPI pins
    * external interrupt pins INT0, INT1
 
-   ![your figure](images/arduino_uno_pinout.png)
+   ![arduino_uno_pinout_final.png](images/arduino_uno_pinout_final.png)
 
 ### I2C communication
 
