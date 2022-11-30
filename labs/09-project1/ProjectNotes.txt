@@ -10,6 +10,8 @@ FINAL PROGRAM LOGIC:
 Move Cursor (xy) Using Joistick
 Rotare Encoder -> SET VALUE
 Press Joistick -> START/STOP 
+After Joistick press -> start countin up
+if val equial to set val -> DISPLAY BLINK?
 Press Encoder -> RESET
 
 

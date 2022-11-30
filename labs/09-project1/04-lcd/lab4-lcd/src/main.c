@@ -47,7 +47,7 @@ int main(void)
 
     // Put string(s) on LCD screen
     lcd_gotoxy(3, 0);
-    lcd_puts("00:00:00:00");
+    lcd_puts("00:00:00:0");
 
     lcd_gotoxy(0, 1);
     lcd_puts("START");
@@ -84,14 +84,16 @@ ISR(TIMER2_OVF_vect)
 {
     static uint8_t no_of_overflows = 0;
     static uint8_t tenths = 0;  // Tenths of a second
-    static uint8_t minutes = 0; // Tenths of a second
-    static uint8_t seconds = 0; // Tenths of a second
+    static uint8_t seconds = 0; // Seconds of a second
+    static uint8_t minutes = 0; // Minutes of a second
+    static uint8_t hours = 0;   // Hours of a second
     char string[2];             // String for converted numbers by itoa()
 
     no_of_overflows++;
     if (no_of_overflows >= 6)
     {
         // Do this every 6 x 16 ms = 100 ms
+        // Count tenth of seconds 0, 1, ..., 9, 0, 1, ...
         no_of_overflows = 0;
         tenths++;
         if (tenths > 9)
@@ -101,47 +103,51 @@ ISR(TIMER2_OVF_vect)
                 seconds++;
                 if (seconds > 59)
                 {
-                    seconds = 0;    
+                    seconds = 0;
                     minutes++;
+                    if (minutes > 59)
+                    {
+                        minutes = 0;
+                        hours++;
+                    }
                 }
             }
         }
+        {
+            lcd_gotoxy(12, 0);
 
-        // Count tenth of seconds 0, 1, ..., 9, 0, 1, ...
+            itoa(tenths, string, 10); // Convert decimal value to string
+            lcd_puts(string);
+        }
 
-        itoa(tenths, string, 10); // Convert decimal value to string
-        lcd_gotoxy(12, 0);
-        lcd_puts(string);
-
-        if (seconds < 10)
         {
             lcd_gotoxy(9, 0);
-            lcd_puts("0");
+            if (seconds < 10)
+            {
+                lcd_puts("0");
+            }
             itoa(seconds, string, 10); // Convert decimal value to string
-            lcd_gotoxy(10, 0);
             lcd_puts(string);
         }
-        else
-        {
-            itoa(seconds, string, 10); // Convert decimal value to stri
-            lcd_gotoxy(9, 0);
-            lcd_puts(string);
-        }
-
-        if (minutes < 10)
         {
             lcd_gotoxy(6, 0);
-            lcd_puts("0");
+            if (minutes < 10)
+            {
+                lcd_puts("0");
+            }
             itoa(minutes, string, 10); // Convert decimal value to string
-            lcd_gotoxy(7, 0);
-            lcd_puts(string);
-        }
-        else
-        {
-            itoa(minutes, string, 10); // Convert decimal value to stri
-            lcd_gotoxy(6, 0);
             lcd_puts(string);
         }
     }
-    // Else do nothing and exit the ISR
+    {
+        lcd_gotoxy(3, 0);
+        if (hours < 10)
+        {
+            lcd_puts("0");
+        }
+        itoa(hours, string, 10); // Convert decimal value to string
+        lcd_puts(string);
+    }
 }
+
+// Else do nothing and exit the ISR
