@@ -43,12 +43,12 @@
 int main(void)
 {
     // Initialize display
-    lcd_init(LCD_DISP_ON);
+    lcd_init(LCD_DISP_ON_CURSOR_BLINK);
+
 
     // Put string(s) on LCD screen
     lcd_gotoxy(3, 0);
     lcd_puts("00:00:00:0");
-
     lcd_gotoxy(0, 1);
     lcd_puts("START");
     lcd_gotoxy(11, 1);
@@ -56,9 +56,27 @@ int main(void)
 
     // Configuration of 8-bit Timer/Counter2 for Stopwatch update
     // Set the overflow prescaler to 16 ms and enable interrupt
+    TIM1_overflow_33ms();
+    TIM1_overflow_interrupt_enable();
 
     TIM2_overflow_16ms();
-    TIM2_overflow_interrupt_enable();
+    //TIM2_overflow_interrupt_enable();
+
+
+    //ADC
+    // Configure Analog-to-Digital Convertion unit
+    // Select ADC voltage reference to "AVcc with external capacitor at AREF pin"
+    ADMUX |= (1<<REFS0); //1
+    ADMUX &= ~(1<<REFS1); //0
+    // Select input channel ADC0 (voltage divider pin)
+    ADMUX &= ~((1<<MUX3) | (1<<MUX2) | (1<<MUX1) | (1<<MUX0)); //0
+    // Enable ADC module
+    ADCSRA |= (1<<ADEN);
+    // Enable conversion complete interrupt
+    ADCSRA |= (1<<ADIE);
+    // Set clock prescaler to 128
+    ADCSRA |= (1<<ADPS2) | (1<<ADPS1) | (1<<ADPS0);
+
 
     // Enables interrupts by setting the global interrupt mask
     sei();
@@ -85,7 +103,7 @@ ISR(TIMER2_OVF_vect)
     static uint8_t no_of_overflows = 0;
     static uint8_t tenths = 0;  // Tenths of a second
     static uint8_t seconds = 0; // Seconds of a second
-    static uint8_t minutes = 0; // Minutes of a second
+    static uint8_t minutes = 1; // Minutes of a second
     static uint8_t hours = 0;   // Hours of a second
     char string[2];             // String for converted numbers by itoa()
 
@@ -95,23 +113,29 @@ ISR(TIMER2_OVF_vect)
         // Do this every 6 x 16 ms = 100 ms
         // Count tenth of seconds 0, 1, ..., 9, 0, 1, ...
         no_of_overflows = 0;
-        tenths++;
-        if (tenths > 9)
+        tenths--;
+        if (tenths > 250)
         {
-            {
-                tenths = 0;
-                seconds++;
-                if (seconds > 59)
+            tenths = 9;
+            seconds--;
+                if (seconds  > 250)
                 {
-                    seconds = 0;
-                    minutes++;
-                    if (minutes > 59)
+                    seconds = 59;
+                    minutes--;
+                    if (minutes  > 250)
                     {
-                        minutes = 0;
-                        hours++;
+                        minutes = 59;
+                        hours--;
+                        if (hours  > 250){
+                            // timer done
+                            tenths = 0;  // Tenths of a second
+                            seconds = 0; // Seconds of a second
+                            minutes = 0; // Minutes of a second
+                            hours = 0;
+
+                        }
                     }
                 }
-            }
         }
         {
             lcd_gotoxy(12, 0);
@@ -150,4 +174,59 @@ ISR(TIMER2_OVF_vect)
     }
 }
 
+
+ISR(TIMER1_OVF_vect)
+{
+    static uint8_t no_of_overflows = 0;
+    char string[1]; 
+    no_of_overflows++;
+    uint8_t sw, clk, dt;
+    if (no_of_overflows >= 3)
+    {
+        no_of_overflows = 0;  
+        ADCSRA |= (1<<ADSC);
+    }
+}
+
+/**********************************************************************
+ * Function: ADC complete interrupt
+ * Purpose:  Display converted value on LCD screen.
+ **********************************************************************/
+ISR(ADC_vect)
+{
+    uint16_t value;
+    char string[10];  // String for converted numbers by itoa()
+    static uint16_t x_value = 0;
+    static uint16_t y_value = 0;
+    static uint8_t cursorx=0;
+    static uint8_t cursory=0;
+
+    // Read converted value
+    // Note that, register pair ADCH and ADCL can be read as a 16-bit value ADC
+    
+    value = ADC;
+    if ((ADMUX & 7) == 0) {
+        // if x value was read
+        x_value = value;
+        if (x_value == 1023)
+        {
+            cursorx ++;
+        }else if (x_value==0){
+            cursorx++;
+        }
+
+        // start reading y joystick position
+        // Select input channel ADC1 (Y joystick)
+        ADMUX &= ~((1<<MUX3) | (1<<MUX2) | (1<<MUX1));
+        ADMUX |= (1<<MUX0);
+        // start conversion
+        ADCSRA |= (1<<ADSC);
+    }else if  ((ADMUX & 7)  == 1){
+        // if y value is being read
+        y_value = value;
+        // select channel back to x input (channel 0)
+        ADMUX &= ~((1<<MUX3) | (1<<MUX2) | (1<<MUX1) | (1<<MUX0));
+    }
+    lcd_gotoxy(cursorx, cursory);
+}
 // Else do nothing and exit the ISR
