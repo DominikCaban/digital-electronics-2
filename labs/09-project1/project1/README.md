@@ -70,15 +70,12 @@ Put flowchats of your algorithm(s). Write descriptive text of your libraries and
 -	INSERT TEXT
 
 ![START](https://user-images.githubusercontent.com/99599292/206030181-46f40f93-0de3-45e5-882b-ca47cf94fb09.PNG)
-
 |:--:| 
 |*Nastavenia časovača*|
 
 ### Spustenie časovača
 -	INSERT TEXT
-
 ![STARTED](https://user-images.githubusercontent.com/99599292/206030185-5deaf6cc-0997-4de3-b73b-8f522007021e.PNG)
-
 |:--:| 
 |*Spustenie časovača*|
 
@@ -86,7 +83,6 @@ Put flowchats of your algorithm(s). Write descriptive text of your libraries and
 -	INSERT TEXT
 
 ![STOPPED](https://user-images.githubusercontent.com/99599292/206030187-5352affd-4f31-4682-9c1c-df3e83b4f955.PNG)
-
 |:--:| 
 |*Zastavenie časovača*|
 
