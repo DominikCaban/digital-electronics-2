@@ -75,6 +75,7 @@ Put flowchats of your algorithm(s). Write descriptive text of your libraries and
 
 ### Spustenie časovača
 -	INSERT TEXT
+
 ![STARTED](https://user-images.githubusercontent.com/99599292/206030185-5deaf6cc-0997-4de3-b73b-8f522007021e.PNG)
 |:--:| 
 |*Spustenie časovača*|
