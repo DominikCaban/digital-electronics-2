@@ -82,7 +82,7 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 |:--:| 
 |*Zastavenie časovača*|
 
-## GitHub repository structure
+## GitHub štruktúra úložiska
 
    ```c
    ├── include         // Included files
