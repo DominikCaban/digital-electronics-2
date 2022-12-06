@@ -62,21 +62,21 @@ V rámci vývojovej sady bola použitá vývojová doska Arduino UNO obsahujúca
 
 ![START.PNG](images/START.PNG)
 |:--:| 
-|*Nastavenia časovača|
+|*Nastavenia časovača*|
 
 ### Spustenie časovača
 -	INSERT TEXT
 
 ![START.PNG](images/STARTED.PNG)
 |:--:| 
-|*Spustenie časovača|
+|*Spustenie časovača*|
 
 ### Zastavenie časovača
 -	INSERT TEXT
 
 ![STOPPED.PNG](images/STOPPED.PNG)
 |:--:| 
-|*Zastavenie časovača|
+|*Zastavenie časovača*|
 
 
 ## Video 
