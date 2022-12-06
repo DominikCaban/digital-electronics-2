@@ -45,12 +45,12 @@ V rámci vývojovej sady bola použitá vývojová doska Arduino UNO obsahujúca
 
 3D Model DPS shieldu <br> (Vrchný pohľad) |Layoutový pohľad DPS shieldu <br> (Vrchný pohľad)
 :-------------------------:|:-------------------------:
-![TOP.PNG](images/TOP.PNG)|![2D.PNG](images/2D.PNG)
+![TOP.PNG](Images/TOP.PNG)|![2D.PNG](Images/2D.PNG)
 3D Model DPS shieldu  <br> (Bočný pohľad)|3D Model DPS shieldu <br> (Bočný pohľad)
 :-------------------------:|:-------------------------:
-![LR_VIEW.PNG](images/LR_VIEW.PNG)|![RL_VIEW.PNG](images/RL_VIEW.PNG)
+![LR_VIEW.PNG](Images/LR_VIEW.PNG)|![RL_VIEW.PNG](Images/RL_VIEW.PNG)
 
-![SchemaTimer.PNG](images/SchemaTimer.PNG)
+![SchemaTimer.PNG](Images/SchemaTimer.PNG)
 <fig caption> <p align="center"> Schéma DPS shliedu
 
 <a name="modules"></a>
@@ -60,21 +60,21 @@ V rámci vývojovej sady bola použitá vývojová doska Arduino UNO obsahujúca
 ### Nastavenie časovača
 -	INSERT TEXT
 
-![START.PNG](images/START.PNG)
+![START.PNG](Images/START.PNG)
 |:--:| 
 |*Nastavenia časovača*|
 
 ### Spustenie časovača
 -	INSERT TEXT
 
-![START.PNG](images/STARTED.PNG)
+![START.PNG](Images/STARTED.PNG)
 |:--:| 
 |*Spustenie časovača*|
 
 ### Zastavenie časovača
 -	INSERT TEXT
 
-![STOPPED.PNG](images/STOPPED.PNG)
+![STOPPED.PNG](Images/STOPPED.PNG)
 |:--:| 
 |*Zastavenie časovača*|
 
