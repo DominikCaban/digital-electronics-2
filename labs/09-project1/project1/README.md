@@ -51,7 +51,7 @@ Layoutový pohľad DPS shieldu <br> (Vrchný pohľad) |3D Model DPS shieldu <br>
 
 ### Schéma zapojenia modulov 
 Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie.
-![SchemaZapojenia.PNG](Images/SchemaZapojenia.PNG)
+![SchemaZapojenia](https://user-images.githubusercontent.com/99599292/206024222-d09645c6-d962-47e9-bce4-604072a9a58a.PNG)
 |:--:| 
 |*Schéma zapojenia modulov*|
 
