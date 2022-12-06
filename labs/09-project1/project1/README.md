@@ -38,15 +38,15 @@ V rámci vývojovej sady bola použitá vývojová doska Arduino UNO obsahujúca
 - Návrh zosilňovača je realizovaný pomocou aplikácie Altium Designer, kde sa po návrhu schémy vytvorí plošný spoj, viď. obrázky nižšie.
 
 
-3D Model DPS shieldu <br> (Vrchný pohľad) |Layoutový pohľad DPS shieldu <br> (Vrchný pohľad)
+3D Model DPS shieldu <br> (Vrchný pohľad) | 3D Model DPS shieldu <br> (Spodný pohľad)
 :-------------------------:|:-------------------------:
-![TOP.PNG](Images/TOP.PNG =250x250)|![2D.PNG](Images/2D.PNG =250x250)
+![TOP](https://user-images.githubusercontent.com/99599292/206024184-630b0892-5c0f-4bee-af78-f6b76cede5ef.PNG)|![BOT](https://user-images.githubusercontent.com/99599292/206024167-6daa4043-3563-473c-9e71-3126e7d38f11.PNG)
 
-3D Model DPS shieldu  <br> (Bočný pohľad)|3D Model DPS shieldu <br> (Bočný pohľad)
+Layoutový pohľad DPS shieldu |3D Model DPS shieldu <br> (Bočný pohľad)
 :-------------------------:|:-------------------------:
-![LR_VIEW.PNG](Images/LR_VIEW.PNG)|![RL_VIEW.PNG](Images/RL_VIEW.PNG)
+![2D](https://user-images.githubusercontent.com/99599292/206024144-bae264bb-660f-47e1-a58b-0a8ea56003ed.PNG)|![LR_VIEW](https://user-images.githubusercontent.com/99599292/206024231-a2c6670b-b2bc-4459-8b94-76b9149c3647.PNG)
 
-![SchemaTimer.PNG](Images/SchemaTimer.PNG)
+![SchemaTimer](https://user-images.githubusercontent.com/99599292/206024214-85624a24-66cd-4574-841a-bfdcb702cbe3.PNG)
 <fig caption> <p align="center"> Schéma DPS shliedu
 
 <a name="software"></a>
@@ -59,10 +59,6 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 ![SchemaZapojenia.PNG](Images/SchemaZapojenia.PNG)
 |:--:| 
 |*Schéma zapojenia modulov*|
-
-
-
-
 
 
 ### Nastavenie časovača
