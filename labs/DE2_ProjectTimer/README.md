@@ -1,8 +1,6 @@
 
 # Časovač s LCD rozhraním <br> založený na kontroléry ATMEGA328p 
 
-Použitie analógového joysticku (2 kanály ADC, 1 tlačidlo), otočného snímača a modulu LCD Digilent PmodCLP.
-
 ### Členovia týmu
 
 **Dominik Caban** <br>
@@ -45,7 +43,7 @@ V rámci vývojovej sady bola použitá vývojová doska Arduino UNO obsahujúca
 
 3D Model DPS shieldu <br> (Vrchný pohľad) |Layoutový pohľad DPS shieldu <br> (Vrchný pohľad)
 :-------------------------:|:-------------------------:
-![TOP.PNG](Images/TOP.PNG)|![2D.PNG](Images/2D.PNG)
+![TOP.PNG](Images/TOP.PNG =250x250)|![2D.PNG](Images/2D.PNG =250x250)
 
 3D Model DPS shieldu  <br> (Bočný pohľad)|3D Model DPS shieldu <br> (Bočný pohľad)
 :-------------------------:|:-------------------------:
@@ -92,11 +90,12 @@ https://youtu.be/nLSVV8CweyI
 <a name="references"></a>
 
 ## Diskuze o výsledcích projektu
-- Na snímkoch z ociloskopu možme pozorovať, že výsledna sínusoida nie je hladká, ale má "schodovitý tvar". Je to dané metódou, ktorú používame na generovanie sínusu, kedy si sínusoidu rozdelíme na 36 častí a každá z nich má istú úroveň. Hladšiu sínusoidu by sme dosiahli, ak by sme použili viacero častí, ale 36 častí pre naše účely postačuje.
+- Na základe simulácii a finálneho videa možeme pozorovať, že výsledné zadanie sme splnili  z ociloskopu možme pozorovať, že výsledna sínusoida nie je hladká, ale má "schodovitý tvar". Je to dané metódou, ktorú používame na generovanie sínusu, kedy si sínusoidu rozdelíme na 36 častí a každá z nich má istú úroveň. Hladšiu sínusoidu by sme dosiahli, ak by sme použili viacero častí, ale 36 častí pre naše účely postačuje.
 - Jeden z problémov, ktorý sme riešili, bol, že sme nevedeli vypočítať periódu PWM pulzov, pre ktoré by sme dosiahli požadovanú frekvenciu audio signálu. Po mnoha nevydarených výpočtoch sme použili experimentálnu metódu, kedy sme s pomocu osciloskopu prišli na periódu pwm pulzov, kedy má audio signál 1 kHz (bolo to 27770 ns).
  Zvyšné frekvencie sme dopočítali podľa vzorca p = (2777/(f/1000)), dané riešenie fungovalo.
-- Ideálnější variantou by bylo využití VGA zesilovače, který by byl řiditelný přes vývojový kit, ovšem realizace v tomto konkrétním případě by byla komplikovaná a projekt by jen zkomplikovala.
-- Projekt nám přinesl vela nových skúseností, a naučili jsme se mnoho nových věcí. 
+
+- Ideálnějšou variantou by bolo využiť mikrospínače namiesto joistiku alebo použiť len samotný encoder a na prepínanie nastavenia času využiť jeho zabudovaný mikrospínač.
+- Projekt nám priniesol množstvo nových skúseností a naučili sme sa veľa nových vecí predovšetkým s prácou s registrami. 
 
 ## Literatura
 
