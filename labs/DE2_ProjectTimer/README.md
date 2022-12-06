@@ -79,6 +79,12 @@ V rámci vývojovej sady bola použitá vývojová doska Arduino UNO obsahujúca
 |:--:| 
 |*Zastavenie časovača*|
 
+### Schéma zapojenia modulov 
+
+Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie.
+![SchemaZapojenia.PNG](Images/SchemaZapojenia.PNG)
+|:--:| 
+|*Schéma zapojenia modulov*|
 
 ## Video 
  
