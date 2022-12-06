@@ -45,7 +45,7 @@ V rámci vývojovej sady bola použitá vývojová doska Arduino UNO obsahujúca
 
 3D Model DPS shieldu <br> (Vrchný pohľad) |Layoutový pohľad DPS shieldu <br> (Vrchný pohľad)
 :-------------------------:|:-------------------------:
-![TOP.PNG](Images/TOP.PNG)|![2D.PNG](Images/2D.PNG)
+![TOP.PNG](Images/TOP.PNG | width=100)|![2D.PNG](Images/2D.PNG | width=100)
 
 3D Model DPS shieldu  <br> (Bočný pohľad)|3D Model DPS shieldu <br> (Bočný pohľad)
 :-------------------------:|:-------------------------:
