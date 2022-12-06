@@ -117,21 +117,8 @@ Put flowchats of your algorithm(s). Write descriptive text of your libraries and
 
 ## Referencie
 
-1. ATMEGA 328p Datasheet: 
-- https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf
-
-2. Arduino UNO R3 Reference Manual: 
-- https://docs.arduino.cc/hardware/uno-rev3
-
-3. Pmod CLP Reference Manual: 
-- https://digilent.com/reference/pmod/pmodclp/start
-
-4. Rotary Encoder Overview: 
-- https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/
-
-5. Github:
-- https://github.com/tomas-fryza/digital-electronics-2
- 
-6. Výsledné návrhové podklady + Gerbery:
-- https://1drv.ms/u/s!ApTT7Dyt-1k9hZRq7iB1lt6IxRTp-Q?e=aoRU1v
-
+1. [ATMEGA 328p Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf)
+2. [LCD display](https://digilent.com/reference/pmod/pmodclp/start)
+3. [Encoder](https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/?fbclid=IwAR2GDmzOCwF2mUCt-pVNGLNIA0n9qdLGAsA48_TlhPRhTdYTlosFNacai3k)
+4. [Digital Electronics 2 course at BUT Brno](https://github.com/tomas-fryza/digital-electronics-2)
+5. [Shield schematic documents + gerbers](https://1drv.ms/u/s!ApTT7Dyt-1k9hZRq7iB1lt6IxRTp-Q?e=aoRU1v)
