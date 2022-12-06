@@ -61,6 +61,7 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 
 ### Vývojový diagram
 -	INSERT TEXT
+
 ![FlowchartV1](https://user-images.githubusercontent.com/99599292/206024249-d700934f-50b6-4252-ad23-c4053fb5dbc2.png)
 
 ### Nastavenie časovača
