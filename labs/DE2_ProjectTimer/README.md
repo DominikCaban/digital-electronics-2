@@ -1,5 +1,5 @@
 
-# Časovač s LCD rozhraním <br> postavený na kontroléry ATMEGA328p 
+# Časovač s LCD rozhraním <br> založený na kontroléry ATMEGA328p 
 
 Použitie analógového joysticku (2 kanály ADC, 1 tlačidlo), otočného snímača a modulu LCD Digilent PmodCLP.
 
