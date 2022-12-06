@@ -62,7 +62,8 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 Put flowchats of your algorithm(s). Write descriptive text of your libraries and source files. Put direct links to these files in src or lib folders.
 
 ### Vývojový diagram
--	INSERT TEXT
+-	INSERT TEXT Write descriptive text of your libraries and source files
+-	INSERT TEXT Insert descriptive text of your implementation  
 
 ![FlowchartV1](https://user-images.githubusercontent.com/99599292/206024249-d700934f-50b6-4252-ad23-c4053fb5dbc2.png)
 
