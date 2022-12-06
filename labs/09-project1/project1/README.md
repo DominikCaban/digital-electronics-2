@@ -59,6 +59,8 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 
 ## Popis Softwaru
 
+Put flowchats of your algorithm(s). Write descriptive text of your libraries and source files. Put direct links to these files in src or lib folders.
+
 ### Vývojový diagram
 -	INSERT TEXT
 
