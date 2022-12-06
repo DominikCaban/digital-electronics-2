@@ -31,11 +31,11 @@
 
 ## Popis Hardwaru
 ### Arduino UNO, Enkóder, Joystick 
-V rámci vývojovej sady bola použitá vývojová doska Arduino UNO obsahujúca 14 digitálnych vstupných/výstupných pinov (z ktorých 6 môže byť použitých ako PWM výstupy), 6 analógových vstupov. Ďalej bol použitý rotačný enkóder typu KY-040, ktorému na jedno 360° otočenie pripadá 20 pulzov. Zároveň bol využitý aj joystick, ktorý sníma v 2 osiach (X a Y) do akej miery je vychýlený (má analógový výstup pre každú z osí). Joystick má aj zabudované tlačidlo (pin SW). Ako posledný bol použitý 16×2 znakový LCD modul (Digilent Pmod CLP), ktorý využíva 8-bitové paralelné dátové rozhranie a umožňuje zobrazovať až 32 rôznych znakov z viac ako 200 možných.
+V rámci vývojovej sady bola použitá vývojová doska Arduino UNO obsahujúca 14 digitálnych vstupných/výstupných pinov (z ktorých 6 môže byť použitých ako PWM výstupy) a 6 analógových vstupov. Ďalej bol použitý rotačný enkóder typu KY-040, ktorému na jedno 360° otočenie pripadá 20 pulzov. Zároveň bol využitý aj joystick, ktorý sníma v 2 osiach (X a Y) do akej miery je vychýlený (má analógový výstup pre každú z osí). Joystick má aj zabudované tlačidlo (pin SW). Ako posledný bol použitý 16×2 znakový LCD modul (Digilent Pmod CLP), ktorý využíva 8-bitové paralelné dátové rozhranie a umožňuje zobrazovať až 32 rôznych znakov z viac ako 200 možných.
 
 ### Shield
 - Do nášho študentského projektu sme zakomponovali shield, ktorý by bolo možné umiestniť nad vývojovú dosku Arduino UNO a bolo by tak možné mať hotový finálny produkt bez dodatočných prepojov a kontaktného poľa. Súčasťou shieldu je LCD display, Enkóder, Joistick a Piezoelektrický menič so zabudovaným generátorom. (V simulácii a aj počas laboratórneho cvičenia bol piezoelektrický menič nahradený LED diódou.) 
-- Návrh zosilňovača je realizovaný pomocou aplikácie Altium Designer, kde sa po návrhu schémy vytvorí plošný spoj, viď. obrázky nižšie.
+- Návrh shieldu je realizovaný pomocou aplikácie Altium Designer, viď. obrázky nižšie.
 
 
 3D Model DPS shieldu <br> (Vrchný pohľad) | 3D Model DPS shieldu <br> (Spodný pohľad)
