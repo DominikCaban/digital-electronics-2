@@ -148,7 +148,7 @@ Pri užívateľských vstupoch sú použité premenné ako napríklad joy_sw_sta
            └── ldc_definitions.h
            └── lcd.h
            └── lcd.c
-       └── uart
+       └── uart        // For debugging
            └── uart.h
            └── uart.c
    ├── src             // Source file(s)
