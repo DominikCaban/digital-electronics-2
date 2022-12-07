@@ -159,7 +159,7 @@ Pri užívateľských vstupoch sú použité premenné ako napríklad joy_sw_sta
    ```
 
 ## Video 
- INSERT YOUTUBE URL
+Na nasledujúcej adrese je k dispozícií video s vysvetlením kódu a s ukážkou funkčnosti na konci videa.  
 
 <a name="references"></a>
 
