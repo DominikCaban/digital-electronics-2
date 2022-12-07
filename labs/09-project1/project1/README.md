@@ -14,6 +14,8 @@
 * [Ciele projektu](#objectives)
 * [Popis Hardwaru](#hardware)
 * [Popis Software](#software)
+* [Knižnice](#lbr)
+* [Zdrojové súbory](#sourcefiles)
 * [Video](#video)
 * [Referencie](#references)
 
@@ -108,6 +110,28 @@ Pri užívateľských vstupoch sú použité premenné ako napríklad joy_sw_sta
 |:--:| 
 |*Ukončenie časovača*|
 
+<a name="lbr"></a>
+
+### Knižnice
+#### Popis
+1. ***LCD*** využíva knižnicu od Petra Fleuryho pre základné funkcie LCD displayu.
+2. ***TIMER*** používa sa na ovládanie timerov mikrokontrola AVR.
+3. ***AVR*** používa sa na volanie timerov mikrokontrola AVR.
+
+<a name="sourcefiles"></a>
+
+#### Zdrojové súbory
+1. LCD
+   1. [lcd.h](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/lib/lcd/lcd.h)
+   2. [lcd.c](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/lib/lcd/lcd.c)
+   3. [lcd_definitions.h](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/lib/lcd/lcd_definitions.h)
+2. TIMER
+   1. [timer.h]https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/include/timer.h)
+3. UART
+   1. [uart.h](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/lib/uart/uart.h)
+   2. [uart.c](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/lib/uart/uart.c)
+4. SOURCE
+   1. [main.c](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/src/main.c)
 
 ## GitHub štruktúra úložiska
 
