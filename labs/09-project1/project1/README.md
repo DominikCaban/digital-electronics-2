@@ -61,9 +61,9 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 
 Kód je kvôli jednoduchosti sústredený celý do súboru main.c a pre lepšiu prehľadnosť je rozdelený do viacerých funkcií podľa požadovanej operácie.
 Pomyselné stavy aplikácie sú presne 2:
-    - Stav1: Časovač je zastavený a pomocou joysticku je sa možné pohybovať po jednotlivých poliach a otočného enkóderu môžeme upravovať jednotlivé hodnoty.
+- Stav1: Časovač je zastavený a pomocou joysticku je sa možné pohybovať po jednotlivých poliach a otočného enkóderu môžeme upravovať jednotlivé hodnoty.
 
-    -Stav2: Časovač je spustený a nie je možné ho upravovať, 
+- Stav2: Časovač je spustený a nie je možné ho upravovať, 
             pozastaviť časovač je možné len stlačením joystick-u.
 
 Program rozlišuje a prepína jednotlivé stavy využitím 2 AVR Timer-ov, z ktorých môže v jeden okamžik bežať len jeden. Stav čítania otočného enkodéra sa mení pomocou bitovej masky pre externé prerušenia.
