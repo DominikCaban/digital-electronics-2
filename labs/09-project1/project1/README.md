@@ -99,7 +99,7 @@ Pri užívateľských vstupoch sú použité premenné ako napríklad joy_sw_sta
 |*Spustenie časovača*|
 
 ### Zastavenie časovača
--	Časovač je možné zastaviť stlačením joysticku, časovač je v tomto momente v pozastavenom stave. Pri stlačení enkóderu sa hodnota resetuje na hodnotu pôvodnú, pre otočení enkóderu sa začne upravovať súčasná hodnota.
+-	Časovač je možné zastaviť stlačením joysticku, časovač je v tomto momente v pozastavenom stave. Pri stlačení enkóderu sa hodnota resetuje na hodnotu pôvodnú, pri otočení enkóderu sa začne upravovať súčasná hodnota.
 
 ![STOPPEDV2](https://user-images.githubusercontent.com/99599292/206186754-dede505b-bb65-4eca-8034-8bc2f57c1720.PNG)
 |:--:| 
