@@ -82,7 +82,7 @@ Pri užívateľských vstupoch sú použité premenné ako napríklad joy_sw_sta
 
 ### Vývojový diagram
 
-![FlowchartV1](https://user-images.githubusercontent.com/99599292/206024249-d700934f-50b6-4252-ad23-c4053fb5dbc2.png)
+![flowchart](https://user-images.githubusercontent.com/99599292/206269500-3c2908ca-0a0e-4aec-9eab-47fa1b842cbb.png)
 
 ### Nastavenie časovača
 - Požadovaná pozícia na obrazovke sa mení joystickom, hodnota na tejto pozícií sa upravuje otočným enkóderom.
