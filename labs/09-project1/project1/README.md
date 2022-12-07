@@ -4,10 +4,10 @@
 ### Členovia týmu
 
 **Dominik Caban** <br>
-- užívateľské rozrhanie (display, joistick), návrh shieldu, finálna dokumentácia (Text, Schéma zapojenia, Strih videa)
+- kód displej, enkóder, návrh shieldu, dokumentácia
 
 **Ivo Dovičák** <br>
-- užívateľské rozrhanie (display, encoder, flowchart), preslov u videa 
+- kód AD prevodu, správa Timer-ov, podporné funkcie, flowchart, preslov u videa 
 
 ### Obsah
 
