@@ -95,17 +95,6 @@ Put flowchats of your algorithm(s). Write descriptive text of your libraries and
 |:--:| 
 |*Ukončenie časovača*|
 
-### Zresetovanie časovača
--	INSERT TEXT
-
-![RESET](https://user-images.githubusercontent.com/99599292/206183748-453c257a-ef72-455c-85af-72d150670f4f.PNG)
-|:--:| 
-|*Reset časovača*|
-
-
-
-
-
 
 ## GitHub štruktúra úložiska
 
