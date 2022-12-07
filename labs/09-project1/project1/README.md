@@ -1,5 +1,7 @@
 
-# Časovač s LCD rozhraním <br> založený na kontroléry ATMEGA328p 
+# Project 1
+
+Časovač s LCD rozhraním <br> založený na kontroléry ATMEGA328p 
 
 ### Členovia týmu
 
