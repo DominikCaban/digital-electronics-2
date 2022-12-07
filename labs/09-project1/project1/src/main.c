@@ -435,16 +435,13 @@ void cursor_change(int8_t x_direction, int8_t y_direction)
     uart_puts("\n ");
     lcd_gotoxy(realx, 0);
 }
-/**********************************************************************
- * Function: ADC complete interrupt
- * Purpose:  Display converted value on LCD screen.
- **********************************************************************/
+
 ISR(ADC_vect)
 {
     uint16_t value;
-    static uint8_t breakpoint = 0; // 0 not breakpoint, 1 breakpoint
+    // slovenska premenna pretoze ma nic ine nenapada, a dlho som nepisal po slovensky, ale mal by som zacat pisat bakalarku
+    static uint8_t doraz = 0; // 0 not doraz, 1 yes doraz, jedno pohnutie joysticku je jedna pozicia a nie viac
     // Read converted value
-    // Note that, register pair ADCH and ADCL can be read as a 16-bit value ADC
 
     value = ADC;
     if ((ADMUX & 7) == 0)
@@ -452,20 +449,20 @@ ISR(ADC_vect)
         // X AXIS ADC
         if (value > 1000)
         {
-            if (breakpoint == 0)
+            if (doraz == 0)
                 cursor_change(1, 0);
-            breakpoint = 1;
+            doraz = 1;
         }
         else if (value < 30)
         {
-            if (breakpoint == 0)
+            if (doraz == 0)
                 cursor_change(-1, 0);
-            breakpoint = 1;
+            doraz = 1;
         }
         else
         {
-            // clr breakpoint
-            breakpoint = 0;
+            // clr doraz
+            doraz = 0;
         }
         // start reading y joystick position
         // Select input channel ADC1 (Y joystick)

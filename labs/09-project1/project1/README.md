@@ -59,39 +59,52 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 
 ## Popis Softwaru
 
-Put flowchats of your algorithm(s). Write descriptive text of your libraries and source files. Put direct links to these files in src or lib folders.
+Kód je kvôli jednoduchosti sústredený celý do súboru main.c a pre lepšiu prehľadnosť je rozdelený do viacerých funkcií podľa požadovanej operácie.
+Pomyselné stavy aplikácie sú presne 2:
+    - Stav1: Časovač je zastavený a pomocou joysticku je sa možné pohybovať po jednotlivých poliach a otočného enkóderu môžeme upravovať jednotlivé hodnoty.
+
+    -Stav2: Časovač je spustený a nie je možné ho upravovať, 
+            pozastaviť časovač je možné len stlačením joystick-u.
+
+Program rozlišuje a prepína jednotlivé stavy využitím 2 AVR Timer-ov, z ktorých môže v jeden okamžik bežať len jeden. Stav čítania otočného enkodéra sa mení pomocou bitovej masky pre externé prerušenia.
+
+Timer1 slúži na spúšťanie AD prevodníka a preto beží len v Stave1, zároveň sú počas sledu operácií pre Timer1 zakomponované podmienky, ktoré sledujú stav stlačenia tlačítok a podľa toho vykonajú požadovanú operáciu (enkóder-reset, joystick-spustenie časovača). 
+
+Timer2 slúži pre samotný časovač a pri spustení odčítava stotiny sekúnd a pomocou toho upravuje všetky časové hodnoty. Zároveň sleduje stav stlačenia tlačítka, pre prípad že je požadované pozastavenie časovača. Po uplynutí nastaveného času sa rozsvieti LED na pine 13 a časovač sa dostane opätovne do stavu1.
+
+Prechod medzi týmito 2 stavmi je realizované pomocou funkcií start_timer() a stop_timer(), ktoré sa starajú o pustenie a zastavenie jednotlivých časovačov a otočného enkodéra.
+
+Pri užívateľských vstupoch sú použité premenné ako napríklad joy_sw_state (predošlý stav), doraz, ktoré kontrolujú predošlý stav vstupu aby sa predišlo nechcenému tzv. dvojkliku.
 
 ### Vývojový diagram
--	INSERT TEXT Write descriptive text of your libraries and source files
--	INSERT TEXT Insert descriptive text of your implementation  
 
 ![FlowchartV1](https://user-images.githubusercontent.com/99599292/206024249-d700934f-50b6-4252-ad23-c4053fb5dbc2.png)
 
 ### Nastavenie časovača
--	INSERT TEXT
+- Požadovaná pozícia na obrazovke sa mení joystickom, hodnota na tejto pozícií sa upravuje otočným enkóderom.
 
 ![START](https://user-images.githubusercontent.com/99599292/206030181-46f40f93-0de3-45e5-882b-ca47cf94fb09.PNG)
 |:--:| 
 |*Nastavenia časovača*|
 
 ### Spustenie časovača
--	INSERT TEXT
+- Časovač sa spúšta stlačením joysticku.
 
 ![STARTED](https://user-images.githubusercontent.com/99599292/206030185-5deaf6cc-0997-4de3-b73b-8f522007021e.PNG)
 |:--:| 
 |*Spustenie časovača*|
 
 ### Zastavenie časovača
--	INSERT TEXT
+-	Časovač je možné zastaviť stlačením joysticku, časovač je v tomto momente v pozastavenom stave. Pri stlačení enkóderu sa hodnota resetuje na hodnotu pôvodnú, pre otočení enkóderu sa začne upravovať súčasná hodnota.
 
 ![STOPPEDV2](https://user-images.githubusercontent.com/99599292/206186754-dede505b-bb65-4eca-8034-8bc2f57c1720.PNG)
 |:--:| 
 |*Zastavenie časovača*|
 
 ### Ukončenie časovača
--	INSERT TEXT
+- Pri ukončení sa spustí funkcia timer_runout, rozsvieti sa LED a časovač sa vráti späť do stavu jedna. Po stlačení enkodéra sa časovač znova resetuje a LED zhasne.
 
-![START](https://user-images.githubusercontent.com/99599292/206183758-3dc86888-6aae-4878-858c-cb02d0b5e0f3.PNG)
+![DONE](https://user-images.githubusercontent.com/99599292/206249848-c34aa907-828e-4d09-aad5-29bd030db8af.PNG)
 |:--:| 
 |*Ukončenie časovača*|
 
