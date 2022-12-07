@@ -84,9 +84,28 @@ Put flowchats of your algorithm(s). Write descriptive text of your libraries and
 ### Zastavenie časovača
 -	INSERT TEXT
 
-![STOPPED](https://user-images.githubusercontent.com/99599292/206030187-5352affd-4f31-4682-9c1c-df3e83b4f955.PNG)
+![STOPPEDV2](https://user-images.githubusercontent.com/99599292/206186754-dede505b-bb65-4eca-8034-8bc2f57c1720.PNG)
 |:--:| 
 |*Zastavenie časovača*|
+
+### Ukončenie časovača
+-	INSERT TEXT
+
+![START](https://user-images.githubusercontent.com/99599292/206183758-3dc86888-6aae-4878-858c-cb02d0b5e0f3.PNG)
+|:--:| 
+|*Ukončenie časovača*|
+
+### Zresetovanie časovača
+-	INSERT TEXT
+
+![RESET](https://user-images.githubusercontent.com/99599292/206183748-453c257a-ef72-455c-85af-72d150670f4f.PNG)
+|:--:| 
+|*Reset časovača*|
+
+
+
+
+
 
 ## GitHub štruktúra úložiska
 
