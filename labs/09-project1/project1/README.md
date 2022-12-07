@@ -160,6 +160,7 @@ Pri užívateľských vstupoch sú použité premenné ako napríklad joy_sw_sta
 
 ## Video 
 Na nasledujúcej adrese je k dispozícií video s vysvetlením kódu a s ukážkou funkčnosti na konci videa.  
+https://www.youtube.com/watch?v=uNGBPMvmf-I
 
 <a name="references"></a>
 
