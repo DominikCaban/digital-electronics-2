@@ -44,7 +44,7 @@ Servomotory sú ovládané prostredníctvom pulzne šírkovej modulácie (PWM) c
 
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/99599292/208722110-f47903c4-e4eb-47e4-aa9d-fa025c04faae.png" alt="Sublime's custom image"/>
+  <img src="https://user-images.githubusercontent.com/99599292/208722110-f47903c4-e4eb-47e4-aa9d-fa025c04faae.png"/>
 </p>
 
 <p align="center">
