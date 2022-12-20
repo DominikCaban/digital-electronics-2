@@ -124,7 +124,7 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 
 ## Video 
 Na nasledujúcej ukážke je k dispozícií video funkčnosti našej aplikácie joysticku a servomotorov. 
-![M](images/M.gif)
+![](https://github.com/DominikCaban/digital-electronics-2/tree/main/labs/10-project2/images/M.gif)
 
 <a name="references"></a>
 
