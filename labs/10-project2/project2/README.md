@@ -85,12 +85,21 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 <fig caption> <p align="center"> *Ovládanie v osy x.*
 
 ### Simulácia - ovládanie servomotorov  
-- Na nasledujúcej ukážke je možné vidieť ovládanie servomotora pomocou joysticku v ose y - po zatlačení encodera. Opäť je znázornená aj požadovaná strieda.
+- Na nasledujúcej ukážke je možné vidieť ovládanie servomotora pomocou joysticku v ose y. Opäť je znázornená aj požadovaná strieda.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/99599292/208735674-56a62d6e-0073-4baf-8c8c-ba22f57b84f2.PNG"/>
+"/>
+  
+<fig caption> <p align="center"> *Ovládanie v osy y.*
+
+### Simulácia - ovládanie servomotorov  
+- Na nasledujúcej ukážke je možné vidieť ovládanie servomotora pomocou joysticku v ose x - po zatlačení encodera. Opäť je znázornená aj požadovaná strieda.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/99599292/208726441-3bc25c28-90b7-4db1-bab6-e358a7bfde16.PNG"/>
-  
-<fig caption> <p align="center"> *Ovládanie v osy y.*
+
+<fig caption> <p align="center"> *Ovládanie po zatlačení joysticku.*
 
 <a name="lbr"></a>
 
