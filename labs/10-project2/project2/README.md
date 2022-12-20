@@ -43,15 +43,14 @@ Servomotory sú ovládané prostredníctvom pulzne šírkovej modulácie (PWM) c
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/99599292/208722110-f47903c4-e4eb-47e4-aa9d-fa025c04faae.png"/>
-  <fig caption> *Znázornenie vplyvu PWM na natočenie hriadeľa.*
 </p>
+<fig caption> <p align="center"> *Znázornenie vplyvu PWM na natočenie hriadeľa.*
 
 ![Control](https://user-images.githubusercontent.com/99599292/208719620-c128765a-d21f-4443-ab53-5469835295a5.jpg)
 <fig caption> <p align="center"> *Riadiaci systém servomotora.*
 
 ![Servo0](https://user-images.githubusercontent.com/99599292/208720097-2d1bf3c9-5ffb-447d-b417-f0eb535ed862.png)
 <fig caption> <p align="center"> *Interné komponenty servomotora.*
-
 
 ### Schéma zapojenia modulov 
 Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie.
