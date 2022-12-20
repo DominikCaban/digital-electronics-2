@@ -61,11 +61,10 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 <a name="software"></a>
 
 ## Popis Softwaru
-Popis Softwaru
 
 Projekt je kvôli jednoduchosti umiestnený len do 1 súboru main.c
 
-INICIALIZÁCIA:
+### INICIALIZÁCIA:
   - Piny (ktoré sú pripojené na interný PWM generátora) sú inicializované ako digitálny output.
   - Joystick je pripojený na ADC piny, ktoré sú inicializované vo funkcii init_joystick()
   - interný PWM generátor je inicializovaný vo funkcií init_pw(), kde je zároveň nastavená perióda PWM signálu na 20ms a základná strieda (duty) na 1.5ms pomocou premenných OCR1A a OCR1B
