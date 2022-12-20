@@ -61,11 +61,10 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 <a name="software"></a>
 
 ## Popis Softwaru
-- ako išlo vajce na vandrovku alebo niečo také... ASAP !!!
+- ako išlo vajce na vandrovku alebo niečo také...
 
 ### Vývojový diagram
-- nejaký pekný obrázok. Ideálne s geometrickými tvarmi... ASAP !!!
-![flowchart]()
+![Flowchart](images/Flowchart.png)
 
 ### Simulácia - východzí stav
 - Na nasledujúcej ukážke je možné vidieť predvolenú polohu hriadeľov jednotlivých servomotorov.

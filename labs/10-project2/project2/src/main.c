@@ -79,7 +79,7 @@ int main(void)
 ISR(PCINT1_vect)
 {
   // Read joystick SW button PC2
-  if ((PINC & (1 << 2))) {
+  if (PINC & (1 << 2)) {
     invert_controls = !invert_controls;
     _delay_ms(200); // Simple debouncing
   }
