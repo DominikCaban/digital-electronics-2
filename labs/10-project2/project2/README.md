@@ -71,22 +71,19 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 - Na nasledujúcej ukážke je možné vidieť predvolenú polohu hriadeľov jednotlivých servomotorov.
 
 ![1](https://user-images.githubusercontent.com/99599292/208726454-87e2dec1-c50a-496a-80e7-141ed631db9d.PNG)
-|:--:| 
-|*Predvolená poloha hriadeľov servomotorov*|
+<fig caption> <p align="center"> *Predvolená poloha hriadeľov servomotorov.*
 
 ### Simulácia - ovládanie servomotorov  
 - Na nasledujúcej ukážke je možné vidieť ovládanie servomotora pomocou joysticku v ose x. Zároveň je znázornená aj požadovaná strieda.
 
 ![2](https://user-images.githubusercontent.com/99599292/208726426-b30c32a5-50ed-40d5-a153-2d8ab4aeccc4.PNG)
-|:--:| 
-|*Ovládanie v osy x*|
+<fig caption> <p align="center"> *Ovládanie v osy x.*
 
 ### Simulácia - ovládanie servomotorov  
 - Na nasledujúcej ukážke je možné vidieť ovládanie servomotora pomocou joysticku v ose y - po zatlačení encodera. Opäť je znázornená aj požadovaná strieda.
 
 ![3](https://user-images.githubusercontent.com/99599292/208726441-3bc25c28-90b7-4db1-bab6-e358a7bfde16.PNG)
-|:--:| 
-|*Ovládanie v osy y*|
+<fig caption> <p align="center"> *Ovládanie v osy y.*
 
 <a name="lbr"></a>
 
