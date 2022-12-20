@@ -1,49 +1,60 @@
-#include <avr/interrupt.h>
-#include <timer.h>
-#include <stdlib.h>
-#include <util/delay.h>
+/***********************************************************************
+ * 
+ * Control 2 servomotors using 2 axis joystick and switch to invert controls
+ * 
+ * ATmega328P (Arduino Uno), 16 MHz, PlatformIO
+ *  
+ * Based on code from Digital Electronics 2 Course
+ * Copyright (c) 2018 Tomas Fryza
+ * Dept. of Radio Electronics, Brno University of Technology, Czechia
+ * This work is licensed under the terms of the MIT license.
+ * 
+ **********************************************************************/
 
-// Pins definitions
-// SERVO1: PB1 (15)
-// SERVO2: PB2 (16)
-// Joystick SW: PC2 (A2)
-// Joystick X: PC0 (A0)
-// Joystick Y: PC1 (A1)
 
-volatile uint8_t invert_controls = 0;
+/* Defines -----------------------------------------------------------*/
+#define LED_GREEN PB5  // Arduino Uno on-board LED
+#define LED_RED PB0    // External active-low LED
+#define BUTTON PD3
 
+
+/* Includes ----------------------------------------------------------*/
+#include <avr/io.h>         // AVR device-specific IO definitions
+#include <avr/interrupt.h>  // Interrupts standard C library for AVR-GCC
+#include "timer.h"          // Timer library for AVR-GCC
+
+// Joystick Switch is connected to bit 2 on PortC register (A2)
+#define JOY_SW 2
+// Servo PWM pins are at bit 2 and 3 in Port B register
+#define SERVO_PIN 3
+#define SERVO2_PIN 2
+
+//Initialization of Joystick functions (ADC)
 void init_joystick()
 {
-  // Initialize TIM0 to 16ms (~62.5Hz)
-  TIM0_overflow_16ms();
-  TIM0_overflow_interrupt_enable();
+    // Timer1 is for starting ADC conversion
+    TIM1_overflow_33ms();
+    TIM1_overflow_interrupt_enable();
 
-  // Configure ADC
-  // ADCMUX register:
-  // Voltage Reference: AVCC with external capacitor at AREF pin (REFS0 = 1, REFS1 =0)
-  // ADC Left Adjust Result: Disabled
-  // Initial Analog Channel Select: ADC0 (MUX = 0)
-  ADMUX = (1 << REFS0);
+    // Configure Analog-to-Digital Convertion unit
+    // Select ADC voltage reference to "AVcc with external capacitor at AREF pin"
+    ADMUX |= (1<<REFS0); //1
+    ADMUX &= ~(1<<REFS1); //0
+    // Select input channel ADC0 (voltage divider pin)
+    ADMUX &= ~((1<<MUX3) | (1<<MUX2) | (1<<MUX1) | (1<<MUX0)); //0
+    // Enable ADC module
+    ADCSRA |= (1<<ADEN);
+    // Enable conversion complete interrupt
+    ADCSRA |= (1<<ADIE);
+    // Set clock prescaler to 128
+    ADCSRA |= (1<<ADPS2) | (1<<ADPS1) | (1<<ADPS0);
 
-  // ADCSRA register:
-  // Enable ADC module and conversion complete interrupt.
-  ADCSRA = (1 << ADEN) | (1 << ADIE);
-  // Set clock prescaler to 128
-  ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
-
-  // Initialize SW button on PC2
-  // Set pin A2 as input in C bank
-  DDRC &= ~(1 << 2);
-  // Pull-up pin 4 in C bank
-  PORTC |= (1 << 2);
-
-  // Configure joystick switch
-  // Enable pin change interrupt for PCINT14..8
-  PCICR |= 1 << PCIE1;
-  // PC interrupt mask only for PCINT10
-	PCMSK1 |= 1 << PCINT10;
+    //set up SW button
+    DDRC &= ~(1<<JOY_SW);
+    PORTC |= (1<<JOY_SW);
 }
 
+//Initialization of AVR internal PWM generator
 void init_pwm()
 {
   // Set PB1 and PB2 as outputs for PWM
@@ -64,69 +75,98 @@ void init_pwm()
   OCR1B = 1500;
 }
 
+/* Function definitions ----------------------------------------------*/
+/**********************************************************************
+ * Main function,
+ * initalize joystick and AVR internal pwm generators
+ * logic flow is controlled through interrupts
+ **********************************************************************/
 int main(void)
 {
-  init_joystick();
-  init_pwm();
+    // Set pins where Servos are connected as output
+    DDRB |= (1<<SERVO_PIN);
+    DDRB |= (1<<SERVO2_PIN);
 
-  sei();
-  while (1) {
+    init_joystick();
+    init_pwm();
 
-  }
-  return 0;
+    // Enables interrupts by setting the global interrupt mask
+    sei();
+    // Infinite loop
+    while (1)
+    {
+        /* Empty loop. All subsequent operations are performed exclusively 
+         * inside interrupt service routines, ISRs */
+    }
+
+    // Will never reach this
+    return 0;
 }
 
-ISR(PCINT1_vect)
+
+/**********************************************************************
+ * TIMER1 interrupt controls ADC conversion start,
+ * which is designed to start every 100ms (3x33ms=100ms)
+ **********************************************************************/
+ISR(TIMER1_OVF_vect)
 {
-  // Read joystick SW button PC2
-  if (PINC & (1 << 2)) {
-    invert_controls = !invert_controls;
-    _delay_ms(200); // Simple debouncing
-  }
+  static uint8_t no_of_overflows = 0;
+  no_of_overflows++;
+
+    if (no_of_overflows >= 3)
+    {
+        no_of_overflows = 0;  
+        ADCSRA |= (1<<ADSC);
+    }
 }
 
-ISR(TIMER0_OVF_vect)
-{
-  static uint8_t overflows = 0;
-
-  // since TIMER0 running every 16ms,
-  // we will trigger first ADC every 64ms, so every 4th overflow
-  if (++overflows >= 4) {
-      overflows = 0;
-      // Set first ADC channel, thus channel 0
-      ADMUX = (ADMUX & ~0xF) | 0;
-      // Trigger ADC conversion
-      ADCSRA |= (1 << ADSC);
-  }
-}
-
+/**********************************************************************
+ * ADC conversion
+ **********************************************************************/
+// joy_sw_state is used to prevent unintended doubleclick 
+// (e.g. if button is pressed for more than 100ms, it would look like it was pressed 2 times)
+uint8_t joy_sw_state;
+uint8_t invert_controls=0;
 ISR(ADC_vect)
 {
-  // gets value from ADC
-  float adc_value = ADC;
-  // gets current mux channel
-  uint8_t mux_channel = ADMUX & 0xF;
-
-  if (mux_channel == 0) {
-    // we sampled PC0, thus joystick X
-    // we need to reconfigure ADC to sample also PC1
-    ADMUX = (ADMUX & ~0xF) | 1;
-    // and trigger adc conversion for second channel
-    ADCSRA |= (1 << ADSC);
-
-    if (invert_controls) {
-      OCR1B = 1000.0f + ((adc_value / 1024.0f) * 1000.0f);
-    } else {
-      OCR1A = 1000.0f + ((adc_value / 1024.0f) * 1000.0f);
+    uint8_t joy_sw = (PINC & (1<<JOY_SW)) >> JOY_SW;
+    // Start timer
+    if (joy_sw==0)
+    {
+        //do it only once per click
+        if (joy_sw_state==1){
+            //invret controls for each axis on joystick
+            invert_controls=!invert_controls;
+        }
     }
-  } else if (mux_channel == 1) {
-    // we sampled PC1, thus joystick Y
-    // we don't need to trigger next adc conversion, since TIMER0 will trigger it
-    
-    if (invert_controls) {
-      OCR1A = 1000.0f + ((adc_value / 1024.0f) * 1000.0f);
-    } else {
-      OCR1B = 1000.0f + ((adc_value / 1024.0f) * 1000.0f);
+    joy_sw_state=joy_sw;
+    // Read converted value
+    float adc_value = ADC;
+    // Note that, register pair ADCH and ADCL can be read as a 16-bit value ADC
+    if ((ADMUX & 7) == 0) {
+        //X AXIS ADC
+
+        if (invert_controls) {
+          OCR1B = 1000.0f + ((adc_value / 1024.0f) * 1000.0f);
+        } else {
+          OCR1A = 1000.0f + ((adc_value / 1024.0f) * 1000.0f);
+        }
+      
+        // start reading y joystick position
+        // Select input channel ADC1 (Y joystick)
+        ADMUX &= ~((1<<MUX3) | (1<<MUX2) | (1<<MUX1));
+        ADMUX |= (1<<MUX0);
+        // start conversion
+        ADCSRA |= (1<<ADSC);
+    }else if  ((ADMUX & 7)  == 1){
+        // Y AXIS ADC
+
+         if (invert_controls) {
+          OCR1A = 1000.0f + ((adc_value / 1024.0f) * 1000.0f);
+        } else {
+          OCR1B = 1000.0f + ((adc_value / 1024.0f) * 1000.0f);
+        }
+        // select channel back to x input (channel 0)
+        ADMUX &= ~((1<<MUX3) | (1<<MUX2) | (1<<MUX1) | (1<<MUX0));
     }
-  }
 }

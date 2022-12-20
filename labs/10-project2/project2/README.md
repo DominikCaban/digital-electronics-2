@@ -6,10 +6,10 @@ Ovládanie dvoch servomotorov SG90 pomocou joysticku (2 ADC kanály, 1 tlačidlo
 ### Členovia týmu
 
 **Dominik Caban** <br>
-- kód PWM, dokumentácia, flowchart
+- kód PWM, dokumentácia, simulácia
 
 **Ivo Dovičák** <br>
-- kód AD prevodu, dokumentácia, simulácia
+- kód AD prevodu, dokumentácia, flowchart
 
 ### Obsah
 
