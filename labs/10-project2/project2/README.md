@@ -140,8 +140,8 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 
 ## Video 
 Na nasledujúcej ukážke je k dispozícií video funkčnosti našej aplikácie joysticku a servomotorov. 
+<iframe src="https://giphy.com/embed/cJJM415Cc96GmwGFOp" width="334" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cJJM415Cc96GmwGFOp">via GIPHY</a></p>
 
-![](https://github.com/DominikCaban/digital-electronics-2/tree/main/labs/10-project2/images/M.gif)
 
 <a name="references"></a>
 
