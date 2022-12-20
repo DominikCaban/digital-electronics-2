@@ -81,6 +81,7 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 <p align="center">
   <img src="https://user-images.githubusercontent.com/99599292/208726426-b30c32a5-50ed-40d5-a153-2d8ab4aeccc4.PNG"/>
 </p>
+
 <fig caption> <p align="center"> *Ovládanie v osy x.*
 
 ### Simulácia - ovládanie servomotorov  
@@ -88,6 +89,7 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/99599292/208726441-3bc25c28-90b7-4db1-bab6-e358a7bfde16.PNG"/>
+  
 <fig caption> <p align="center"> *Ovládanie v osy y.*
 
 <a name="lbr"></a>
