@@ -75,8 +75,6 @@ Interný generátor je ovládaný len zmenou hodnôt OCR1A a OCR1B,
 použitý vzorec na výpočet striedy je:  `OCR = 1000.0f + ((adc_value / 1024.0f) * 1000.0f)`
 jedná sa o priamu úmeru, ku ktorej je pripočítaná konštanta 1000 (adc_value nadobúda hodnôt od `0` po `1024`, a hodnota striedy `OCR` môže byť od `1000` po `2000` pre správne fungovanie servomotorov)
 
-Pri užívateľských vstupoch sú použité premenné ako napríklad `joy_sw_state` (predošlý stav), doraz, ktoré kontrolujú predošlý stav vstupu aby sa predišlo nechcenému tzv. dvojkliku.
-
 
 ### Vývojový diagram
 <p align="center">
