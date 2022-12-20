@@ -41,7 +41,9 @@ V rámci vývojovej sady bola použitá vývojová doska Arduino UNO obsahujúca
 ### Servomotor
 Servomotory sú ovládané prostredníctvom pulzne šírkovej modulácie (PWM) cez riadiaci vodič. PWM modulácia určuje polohu hriadeľa. Na základe šírky impulzov (stridy) vysielaných s presne definovanou periódou 20ms (odpovedajúcou frekvencii 50Hz) sa rotor otočí do požadovanej polohy. Napríklad pri striede trvajúcej 1,5 ms sa rotor otočí do polohy 90°. V prípade privedenia impulzu so striedou rovnej 1 ms sa rotor otočí do polohy 0°. Pokiaľ by bola privedená strieda rovná 2 ms nastane otočenie servomotora v smere hodinových ručičiek do polohy 180°. Interný princíp zapojenia servomotora je možné vyrozumieť na základe blokovej schémy nižšie (Riadiaci systém servomotora). Ako Feedback Encoder sa v našom prípade používa potenciometer zabudovaný v servomotore viď. nižšie. 
 
+<p align="center">
 ![ServPWM](https://user-images.githubusercontent.com/99599292/208722110-f47903c4-e4eb-47e4-aa9d-fa025c04faae.png)
+<p>
 <fig caption> <p align="center"> *Znázornenie vplyvu PWM na natočenie hriadeľa.*
 
 ![Control](https://user-images.githubusercontent.com/99599292/208719620-c128765a-d21f-4443-ab53-5469835295a5.jpg)
