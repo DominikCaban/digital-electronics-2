@@ -65,6 +65,8 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 
 ### Vývojový diagram
 ![Flowchart](images/Flowchart.png)
+<img width="734" alt="Flowchart" src="https://user-images.githubusercontent.com/99599292/208751697-45480b97-2d49-4a87-945e-d2d76e97f5cd.png">
+
 
 ### Simulácia - východzí stav
 - Na nasledujúcej ukážke je možné vidieť predvolenú polohu hriadeľov jednotlivých servomotorov.
