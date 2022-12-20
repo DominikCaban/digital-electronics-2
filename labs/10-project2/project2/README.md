@@ -61,78 +61,47 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 <a name="software"></a>
 
 ## Popis Softwaru
-
-Kód je kvôli jednoduchosti sústredený celý do súboru main.c a pre lepšiu prehľadnosť je rozdelený do viacerých funkcií podľa požadovanej operácie.
-Pomyselné stavy aplikácie sú presne 2:
-- Stav1: Časovač je zastavený a pomocou joysticku je sa možné pohybovať po jednotlivých poliach a otočného enkóderu môžeme upravovať jednotlivé hodnoty.
-
-- Stav2: Časovač je spustený a nie je možné ho upravovať, 
-            pozastaviť časovač je možné len stlačením joystick-u.
-
-Program rozlišuje a prepína jednotlivé stavy využitím 2 AVR Timer-ov, z ktorých môže v jeden okamžik bežať len jeden. Stav čítania otočného enkodéra sa mení pomocou bitovej masky pre externé prerušenia.
-
-Timer1 slúži na spúšťanie AD prevodníka a preto beží len v Stave1, zároveň sú počas sledu operácií pre Timer1 zakomponované podmienky, ktoré sledujú stav stlačenia tlačítok a podľa toho vykonajú požadovanú operáciu (enkóder-reset, joystick-spustenie časovača). 
-
-Timer2 slúži pre samotný časovač a pri spustení odčítava stotiny sekúnd a pomocou toho upravuje všetky časové hodnoty. Zároveň sleduje stav stlačenia tlačítka, pre prípad že je požadované pozastavenie časovača. Po uplynutí nastaveného času sa rozsvieti LED na pine 13 a časovač sa dostane opätovne do stavu1.
-
-Prechod medzi týmito 2 stavmi je realizované pomocou funkcií start_timer() a stop_timer(), ktoré sa starajú o pustenie a zastavenie jednotlivých časovačov a otočného enkodéra.
-
-Pri užívateľských vstupoch sú použité premenné ako napríklad joy_sw_state (predošlý stav), doraz, ktoré kontrolujú predošlý stav vstupu aby sa predišlo nechcenému tzv. dvojkliku.
+- ako išlo vajce na vandrovku alebo niečo také... ASAP !!!
 
 ### Vývojový diagram
+- nejaký pekný obrázok. Ideálne s geometrickými tvarmi... ASAP !!!
+![flowchart]()
 
-![flowchart](https://user-images.githubusercontent.com/99599292/206269500-3c2908ca-0a0e-4aec-9eab-47fa1b842cbb.png)
-
-### Nastavenie časovača
-- Požadovaná pozícia na obrazovke sa mení joystickom, hodnota na tejto pozícií sa upravuje otočným enkóderom.
-
-![START](https://user-images.githubusercontent.com/99599292/206030181-46f40f93-0de3-45e5-882b-ca47cf94fb09.PNG)
+### Simulácia - východzí stav
+- Na nasledujúcej ukážke je možné vidieť predvolenú polohu hriadeľov jednotlivých servomotorov.
+![1](https://user-images.githubusercontent.com/99599292/208726454-87e2dec1-c50a-496a-80e7-141ed631db9d.PNG)
 |:--:| 
-|*Nastavenia časovača*|
+|*Predvolená poloha hriadeľov servomotorov*|
 
-### Spustenie časovača
-- Časovač sa spúšta stlačením joysticku.
-
-![STARTED](https://user-images.githubusercontent.com/99599292/206030185-5deaf6cc-0997-4de3-b73b-8f522007021e.PNG)
+### Simulácia - ovládanie servomotorov  
+- Na nasledujúcej ukážke je možné vidieť ovládanie servomotora pomocou joysticku v ose x. Zároveň je znázornená aj požadovaná strieda.
+![2](https://user-images.githubusercontent.com/99599292/208726426-b30c32a5-50ed-40d5-a153-2d8ab4aeccc4.PNG)
 |:--:| 
-|*Spustenie časovača*|
+|*Ovládanie v osy x*|
 
-### Zastavenie časovača
--	Časovač je možné zastaviť stlačením joysticku, časovač je v tomto momente v pozastavenom stave. Pri stlačení enkóderu sa hodnota resetuje na hodnotu pôvodnú, pri otočení enkóderu sa začne upravovať súčasná hodnota.
-
-![STOPPEDV2](https://user-images.githubusercontent.com/99599292/206186754-dede505b-bb65-4eca-8034-8bc2f57c1720.PNG)
+### Simulácia - ovládanie servomotorov  
+- Na nasledujúcej ukážke je možné vidieť ovládanie servomotora pomocou joysticku v ose y - po zatlačení encodera. Opäť je znázornená aj požadovaná strieda.
+![3](https://user-images.githubusercontent.com/99599292/208726441-3bc25c28-90b7-4db1-bab6-e358a7bfde16.PNG)
 |:--:| 
-|*Zastavenie časovača*|
-
-### Ukončenie časovača
-- Pri ukončení sa spustí funkcia timer_runout, rozsvieti sa LED a časovač sa vráti späť do stavu jedna. Po stlačení enkodéra sa časovač znova resetuje a LED zhasne.
-
-![DONE](https://user-images.githubusercontent.com/99599292/206249848-c34aa907-828e-4d09-aad5-29bd030db8af.PNG)
-|:--:| 
-|*Ukončenie časovača*|
+|*Ovládanie v osy y*|
 
 <a name="lbr"></a>
 
 ### Knižnice
 #### Popis
-1. ***LCD*** využíva knižnicu od Petra Fleuryho pre základné funkcie LCD displayu.
-2. ***TIMER*** používa sa na ovládanie timerov mikrokontrola AVR.
-3. ***AVR*** používa sa na volanie timerov mikrokontrola AVR.
+1. ***TIMER*** používa sa na ovládanie timerov mikrokontrola AVR.
+2. ***AVR*** používa sa na volanie timerov mikrokontrola AVR.
 
 <a name="sourcefiles"></a>
 
 #### Zdrojové súbory
-1. LCD
-   1. [lcd.h](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/lib/lcd/lcd.h)
-   2. [lcd.c](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/lib/lcd/lcd.c)
-   3. [lcd_definitions.h](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/lib/lcd/lcd_definitions.h)
-2. TIMER
-   1. [timer.h](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/include/timer.h)
-3. UART
-   1. [uart.h](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/lib/uart/uart.h)
-   2. [uart.c](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/lib/uart/uart.c)
-4. SOURCE
-   1. [main.c](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/09-project1/project1/src/main.c)
+1. TIMER
+   1. [timer.h](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/10-project2/project2/include/timer.h)
+2. UART
+   1. [uart.h](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/10-project2/project2/lib/uart/uart.h)
+   2. [uart.c](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/10-project2/project2/lib/uart/uart.c)
+3. SOURCE
+   1. [main.c](https://github.com/DominikCaban/digital-electronics-2/blob/main/labs/10-project2/project2/src/main.c)
 
 ## GitHub štruktúra úložiska
 
@@ -143,11 +112,7 @@ Pri užívateľských vstupoch sú použité premenné ako napríklad joy_sw_sta
        └── gpio
            └── gpio.c
            └── gpio.h
-       └── lcd
-           └── ldc_definitions.h
-           └── lcd.h
-           └── lcd.c
-       └── uart        // For debugging
+       └── uart        // for debugging (not in final code)
            └── uart.h
            └── uart.c
    ├── src             // Source file(s)
@@ -158,15 +123,15 @@ Pri užívateľských vstupoch sú použité premenné ako napríklad joy_sw_sta
    ```
 
 ## Video 
-Na nasledujúcej adrese je k dispozícií video s vysvetlením kódu a s ukážkou funkčnosti na konci videa.  
-https://www.youtube.com/watch?v=uNGBPMvmf-I
+Na nasledujúcej ukážke je k dispozícií video funkčnosti našej aplikácie joysticku a servomotorov. 
+![M](images/M.gif)
 
 <a name="references"></a>
 
 ## Referencie
 
 1. [ATMEGA 328p Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf)
-2. [LCD display](https://digilent.com/reference/pmod/pmodclp/start)
-3. [Encoder](https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/?fbclid=IwAR2GDmzOCwF2mUCt-pVNGLNIA0n9qdLGAsA48_TlhPRhTdYTlosFNacai3k)
-4. [Digital Electronics 2 course at BUT Brno](https://github.com/tomas-fryza/digital-electronics-2)
-5. [Shield schematic documents + gerbers](https://1drv.ms/u/s!ApTT7Dyt-1k9hZRq7iB1lt6IxRTp-Q?e=aoRU1v)
+2. [Servomotor](https://www.jameco.com/Jameco/workshop/Howitworks/how-servo-motors-work.html#:~:text=Servos%20are%20controlled%20by%20sending,total%20of%20180%C2%B0%20movement.)
+3. [ServoController](https://www.thomasnet.com/articles/instruments-controls/servo-motor-controllers/)
+4. [Encoder](https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/?fbclid=IwAR2GDmzOCwF2mUCt-pVNGLNIA0n9qdLGAsA48_TlhPRhTdYTlosFNacai3k)
+5. [Digital Electronics 2 course at BUT Brno](https://github.com/tomas-fryza/digital-electronics-2)
