@@ -65,7 +65,7 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 
 ### Vývojový diagram
 <p align="center">
- <img width="734" alt="Flowchart" src="https://user-images.githubusercontent.com/99599292/208751697-45480b97-2d49-4a87-945e-d2d76e97f5cd.png">
+ <img width="734" alt="Flowchart1" src="https://user-images.githubusercontent.com/99599292/208751697-45480b97-2d49-4a87-945e-d2d76e97f5cd.png">
 </p>
 
 ### Simulácia - východzí stav
@@ -80,7 +80,7 @@ Funkčnosť zapojenia bola demonštrovaná na základe schémy uvedenej nižšie
 - Na nasledujúcej ukážke je možné vidieť ovládanie servomotora pomocou joysticku v ose x. Zároveň je znázornená aj požadovaná strieda.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/99599292/208726426-b30c32a5-50ed-40d5-a153-2d8ab4aeccc4.PNG"/>
+   <img src="https://user-images.githubusercontent.com/99599292/208776328-2dd1f8ba-cf47-44c9-93fa-08435d026652.png">
 </p>
 
 <fig caption> <p align="center"> *Ovládanie v osy x.*
